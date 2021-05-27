@@ -14,7 +14,7 @@ const GetContactsReduser = (
 ): ContactState => {
   switch (action.type) {
     case ContactsActionTypes.GET_CONTACTS:
-      return { ...initialState, contacts: action.payload };
+      return { contacts: action.payload };
     default:
       return state;
   }
