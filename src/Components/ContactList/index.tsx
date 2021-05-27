@@ -13,12 +13,13 @@ gap: 10px 10px;
 
 const ContactList: React.FC = () => {
   const { contacts } = useTypedSelector((store) => { return store; });
-  console.log('from contact list - ', contacts);
 
   return (
     <ContactListWrapper>
       {contacts && contacts.map((contact: Contact) => {
-        return <ContactItem key={contact.id} data={contact} />;
+        return (
+          <ContactItem key={contact.id} data={contact} />
+        );
       })}
     </ContactListWrapper>
   );

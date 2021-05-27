@@ -24,7 +24,7 @@ list-style-type: none;
 gap: 10px;
 `;
 
-const ContactItem: React.FC<any> = (props: Contact) => {
+const ContactItem: React.FC<{key: string, data:Contact}> = (props) => {
   console.log(props);
   return (
     <ContactItemWrapper>
