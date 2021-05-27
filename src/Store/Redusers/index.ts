@@ -1,33 +1,8 @@
-////////////////////////Finished 8:00
+import { combineReducers } from 'redux';
+import GetContactsReducer from './getContactsReducer';
 
-const initialState = {
-  contacts: [],
-};
+const rootReducer = combineReducers({
+  contacts: GetContactsReducer,
+});
 
-enum Types {
-  FETCH_CONTACTS = 'FETCH_CONTACTS';
-}
-
-interface Contact {
-  id: string,
-  foto: string,
-  name: string,
-  login: string,
-  phone: string,
-  rauting: number
-}
-
-interface ContactState {
-  contacts: Contact[],
-}
-
-const ContactsReduser = (state = initialState, action): ContactState => {
-  switch (action.type) {
-    case Types.FETCH_CONTACTS:
-      return { contacts: action.payload };
-    default:
-      return state;
-  }
-};
-
-export default ContactsReduser;
+export default rootReducer;

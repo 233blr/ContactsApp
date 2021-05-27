@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import useTypedSelector from '../../Hooks/useTypedSelector';
+import { Contact } from '../../Types/getContactsReduser';
 
 import ContactItem from './ContactItem';
 
@@ -10,12 +12,14 @@ gap: 10px 10px;
 `;
 
 const ContactList: React.FC = () => {
+  const { contacts } = useTypedSelector((store) => { return store; });
+  console.log('from contact list - ', contacts);
+
   return (
     <ContactListWrapper>
-      <ContactItem />
-      <ContactItem />
-      <ContactItem />
-      <ContactItem />
+      {contacts && contacts.map((contact: Contact) => {
+        return <ContactItem key={contact.id} data={contact} />;
+      })}
     </ContactListWrapper>
   );
 };
