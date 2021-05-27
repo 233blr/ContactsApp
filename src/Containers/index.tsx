@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import axios from 'axios';
+
+import { useDispatch } from 'react-redux';
+import { fetchContacts } from '../Store/Actions/getContactsAction';
 
 import { Header, ContactList } from '../Components';
 
@@ -13,12 +15,10 @@ height: 100vh;
 `;
 
 const App: React.FC = () => {
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    axios.get('https://randomuser.me/api/?results=50')
-      .then(({ data }) => {
-        console.log(data);
-      })
-      .catch((error) => { return console.log(error); });
+    dispatch(fetchContacts());
   }, []);
 
   return (

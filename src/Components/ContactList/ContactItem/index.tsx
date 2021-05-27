@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Contact } from '../../../Types/getContactsReduser';
 
 const ContactItemWrapper = styled.div`
 display: grid;
@@ -23,7 +24,8 @@ list-style-type: none;
 gap: 10px;
 `;
 
-const ContactItem: React.FC = () => {
+const ContactItem: React.FC<{key: string, data:Contact}> = (props) => {
+  console.log(props);
   return (
     <ContactItemWrapper>
       <div>img</div>
@@ -35,7 +37,7 @@ const ContactItem: React.FC = () => {
         <LiWrapper>login</LiWrapper>
         <LiWrapper>email</LiWrapper>
       </UlWrapper>
-      <div>rating</div>
+      <div>rauting</div>
       <div>buttons</div>
     </ContactItemWrapper>
   );
