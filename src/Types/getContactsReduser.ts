@@ -1,30 +1,41 @@
-export interface Contact {
+/* eslint-disable no-unused-vars */
+export interface ContactType {
   id: string;
   foto: string;
-  fullfoto: string;
+  fullFoto: string;
   name: string;
   login: string;
+  email: string;
   phone: string;
-  rauting: number;
+  rating: number;
 }
 
 export enum ContactsActionTypes {
-  // eslint-disable-next-line no-unused-vars
-  GET_CONTACTS = 'GET_CONTACTS'
+  FETCH_CONTACTS = 'FETCH_CONTACTS',
+  FETCH_CONTACTS_SUCCESS = 'FETCH_CONTACTS_SUCCESS',
+  FETCH_CONTACTS_ERROR = 'FETCH_CONTACTS_ERROR',
 }
 
 export interface FetchContactsAction {
-  type: ContactsActionTypes.GET_CONTACTS;
-  payload: Contact[];
+  type: ContactsActionTypes.FETCH_CONTACTS;
 }
 
-export type ContactActions = FetchContactsAction;
+export interface FetchContactsSuccessAction {
+  type: ContactsActionTypes.FETCH_CONTACTS_SUCCESS;
+  payload: ContactType[];
+}
 
-// interface ContactAction {
-//   type: string;
-//   payload?: any;
-// }
+export interface FetchContactsErrorAction {
+  type: ContactsActionTypes.FETCH_CONTACTS_ERROR;
+  payload: string;
+}
 
-export interface ContactState {
-  contacts: Contact[];
+export type ContactsActions = FetchContactsAction
+| FetchContactsSuccessAction
+| FetchContactsErrorAction;
+
+export interface ContactsState {
+  contacts: ContactType[];
+  loading: boolean;
+  error: null | string;
 }

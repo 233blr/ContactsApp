@@ -1,41 +1,45 @@
-import axios from 'axios';
 import { Dispatch } from 'redux';
-
+import axios from 'axios';
 import {
-  FetchContactsAction,
   ContactsActionTypes,
-  ContactActions,
+  ContactsActions,
 } from '../../Types/getContactsReduser';
 
-export const getContacts = (contacts: any[]): FetchContactsAction => {
-  return {
-    type: ContactsActionTypes.GET_CONTACTS,
-    payload: contacts,
-  };
-};
+const URL = 'https://randomuser.me/api/?results=50';
 
-export const fetchContacts = () => {
-  return (dispatch: Dispatch<ContactActions>) => {
-    axios.get('https://randomuser.me/api/?results=50')
-      .then(
-        ({ data }) => {
-          const res = [...data.results].map((contact) => {
-            return {
-              id: contact.login.uuid,
-              foto: contact.picture.medium,
-              fullfoto: contact.picture.large,
-              name: `${contact.name.first} ${contact.name.last}`,
-              login: contact.login.username,
-              phone: contact.phone,
-              rauting: 0,
-            };
-          });
-
-          dispatch(getContacts(res));
-        },
-      )
-      .catch((error) => {
-        return console.log(`An error occured while loading contacts ${error}`);
+const fetchContacts = () => {
+  return async (dispatch: Dispatch<ContactsActions>) => {
+    try {
+      dispatch({ type: ContactsActionTypes.FETCH_CONTACTS });
+      const response = await axios.get(URL)
+        .then(
+          ({ data }) => {
+            const contacts = data.results.map((contact: any) => {
+              return {
+                id: contact.login.uuid,
+                foto: contact.picture.medium,
+                fullFoto: contact.picture.large,
+                name: `${contact.name.first} ${contact.name.last}`,
+                login: contact.login.username,
+                email: contact.email,
+                phone: contact.phone,
+                rating: 0,
+              };
+            });
+            return contacts;
+          },
+        );
+      dispatch({
+        type: ContactsActionTypes.FETCH_CONTACTS_SUCCESS,
+        payload: response,
       });
+    } catch (error) {
+      dispatch({
+        type: ContactsActionTypes.FETCH_CONTACTS_ERROR,
+        payload: `😱 request failed ${error}`,
+      });
+    }
   };
 };
+
+export default fetchContacts;

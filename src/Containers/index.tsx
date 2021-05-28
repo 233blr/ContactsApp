@@ -1,9 +1,7 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
-
 import { useDispatch } from 'react-redux';
-import { fetchContacts } from '../Store/Actions/getContactsAction';
-
+import fetchContacts from '../Store/Actions/getContactsAction';
 import { Header, ContactList } from '../Components';
 
 const AppWrapper = styled.div`

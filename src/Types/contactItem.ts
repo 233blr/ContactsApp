@@ -1,6 +1,6 @@
-import { Contact } from './getContactsReduser';
+import { ContactType } from './getContactsReduser';
 
 export type ContactItemType = {
   key: string,
-  data: Contact,
+  data: ContactType,
 }

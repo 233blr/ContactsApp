@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Contact } from '../../../Types/getContactsReduser';
+import LoadingDelay from '../../../HOC/LoadingDelay';
+import { ContactItemType } from '../../../Types/contactItem';
 
 const ContactItemWrapper = styled.div`
 display: grid;
@@ -9,38 +10,22 @@ grid-template-areas:
 'img' 'img' 'discription' 'vue' 'list' 'rating' 'buttons';
 align-items: center;
 justify-items: center;
-background-color: #dadada;
+background-color: #fff;
 border-radius: 5px;
 `;
 
-const UlWrapper = styled.ul`
-display: flex;
-flex-direction: row;
-`;
-
-const LiWrapper = styled.li`
-margin: 10px;
-list-style-type: none;
-gap: 10px;
-`;
-
-const ContactItem: React.FC<{key: string, data:Contact}> = (props) => {
-  console.log(props);
+const ContactItem: React.FC<ContactItemType> = ({ data }) => {
   return (
     <ContactItemWrapper>
-      <div>img</div>
-      <div>discription</div>
-      <div>vue</div>
-      <UlWrapper>
-        <LiWrapper>name</LiWrapper>
-        <LiWrapper>phone</LiWrapper>
-        <LiWrapper>login</LiWrapper>
-        <LiWrapper>email</LiWrapper>
-      </UlWrapper>
-      <div>rauting</div>
+      <img src={data.foto} alt="foto" />
+      <div>{data.name}</div>
+      <div>{data.phone}</div>
+      <div>{data.login}</div>
+      <div>{data.email}</div>
+      <div>{data.rating}</div>
       <div>buttons</div>
     </ContactItemWrapper>
   );
 };
 
-export default ContactItem;
+export default LoadingDelay(ContactItem);
