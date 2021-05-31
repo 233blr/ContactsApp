@@ -6,8 +6,10 @@ import ContactItem from './ContactItem';
 
 const ContactListWrapper = styled.div`
 display: grid;
-grid-template-columns: repeat(auto-fit,minmax(580px, 1fr));
+grid-template-columns: repeat(auto-fit,minmax(280px, 1fr));
+justify-content: space-between;
 gap: 10px 10px;
+margin: 10px;
 `;
 
 const ContactList: React.FC = () => {

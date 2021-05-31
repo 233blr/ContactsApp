@@ -3,7 +3,8 @@ export interface ContactType {
   id: string;
   foto: string;
   fullFoto: string;
-  name: string;
+  firstName: string;
+  lastName: string;
   login: string;
   email: string;
   phone: string;
