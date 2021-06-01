@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { FC, useEffect } from 'react';
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
 import fetchContacts from '../Store/Actions/getContactsAction';
@@ -12,7 +12,7 @@ max-width: 1200px;
 height: 100vh;
 `;
 
-const App: React.FC = () => {
+const App: FC = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {

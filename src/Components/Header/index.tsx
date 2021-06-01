@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
 
 const HeaderWrapper = styled.div`
@@ -29,10 +29,15 @@ border: 0;
 background-color: #FFCD24;
 padding: 10px;
 font-size: 16px;
-text-decoration: underline;
 color: #33393D;
 border-radius: 3px;
-cursor: pointer;
+:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}
+:active{
+  color: #666B6E;
+}
 `;
 
 const UlWrapper = styled.ul`
@@ -46,23 +51,25 @@ gap: 10px;
 
 const LiWrapper = styled.li`
 list-style: none;
+:hover{
 cursor: pointer;
+text-decoration: underline;
+}
+:active{
+  color: #9DC8E4;
+}
 `;
 
-const Header: React.FC = () => {
-  return (
-    <HeaderWrapper>
-      <H1Wrapper />
-      <LiadersPageWrapper>
-        To Liaders Page
-      </LiadersPageWrapper>
-      <UlWrapper>
-        <LiWrapper>All</LiWrapper>
-        <LiWrapper>Name</LiWrapper>
-        <LiWrapper>Rating</LiWrapper>
-      </UlWrapper>
-    </HeaderWrapper>
-  );
-};
+const listItems: string[] = ['Name', 'Login', 'Email', 'Phone', 'Rating'];
+
+const Header: FC = () => (
+  <HeaderWrapper>
+    <H1Wrapper />
+    <LiadersPageWrapper>Liaders</LiadersPageWrapper>
+    <UlWrapper>
+      {listItems.map((item) => <LiWrapper key={item}>{item}</LiWrapper>)}
+    </UlWrapper>
+  </HeaderWrapper>
+);
 
 export default Header;

@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
 import { AiOutlineDelete, AiOutlineFullscreen } from 'react-icons/ai';
 import { ContactItemType } from '../../../Types/contactItem';
+import RatingList from './RaitingList';
 
 const ContactItemWrapper = styled.div`
 display: grid;
@@ -72,36 +73,34 @@ cursor: pointer;
 transition: all 0.5s ease-in-out 0.5s;
 `;
 
-const ContactItem: React.FC<ContactItemType> = ({ data }) => {
-  return (
-    <ContactItemWrapper>
-      <ImgWrapper src={data.foto} alt="foto" />
-      <div>{data.rating}</div>
-      <NameWrapper>
-        {data.firstName}
-        <span>
-          {` ${data.lastName}`}
-        </span>
-      </NameWrapper>
-      <div>{data.phone}</div>
-      <div>{data.login}</div>
-      <div>{data.email}</div>
-      <ViewBtnWrapper
-        className="ViewBtn"
-        type="button"
-        title="Open full contact"
-      >
-        <p><AiOutlineFullscreen /></p>
-      </ViewBtnWrapper>
-      <DeleteBtnWrapper
-        className="DeleteBtn"
-        type="button"
-        title="Delete contact"
-      >
-        <p><AiOutlineDelete /></p>
-      </DeleteBtnWrapper>
-    </ContactItemWrapper>
-  );
-};
+const ContactItem: FC<ContactItemType> = ({ data }) => (
+  <ContactItemWrapper>
+    <ImgWrapper src={data.foto} alt="foto" />
+    <RatingList rating={data.rating} />
+    <NameWrapper>
+      {data.firstName}
+      <span>
+        {` ${data.lastName}`}
+      </span>
+    </NameWrapper>
+    <div>{data.phone}</div>
+    <div>{data.login}</div>
+    <div>{data.email}</div>
+    <ViewBtnWrapper
+      className="ViewBtn"
+      type="button"
+      title="Open full contact"
+    >
+      <p><AiOutlineFullscreen /></p>
+    </ViewBtnWrapper>
+    <DeleteBtnWrapper
+      className="DeleteBtn"
+      type="button"
+      title="Delete contact"
+    >
+      <p><AiOutlineDelete /></p>
+    </DeleteBtnWrapper>
+  </ContactItemWrapper>
+);
 
 export default ContactItem;

@@ -1,11 +1,9 @@
 import React from 'react';
 
-const FullContact: React.FC = () => {
-  return (
-    <div>
-      FullContact
-    </div>
-  );
-};
+const FullContact: React.FC = () => (
+  <div>
+    FullContact
+  </div>
+);
 
 export default FullContact;

@@ -20,6 +20,7 @@
     "@typescript-eslint"
   ],
   "rules": {
+    "no-nested-ternary": "off",
     "no-shadow": "off",
     "@typescript-eslint/no-shadow": ["error"],
     "@typescript-eslint/explicit-module-boundary-types": "off",
@@ -27,15 +28,11 @@
     "no-use-before-define": "off",
     "@typescript-eslint/no-use-before-define": ["error"],
     "no-console": "off",
-    "@typescript-eslint/explicit-function-return-type": [
-      "error",
-      {
-        "allowExpressions": true
-      }
-    ],
+    "@typescript-eslint/explicit-function-return-type": "off",
     "arrow-body-style": [
       "error",
-      "always"
+      "as-needed", 
+      { "requireReturnForObjectLiteral": true }
     ],
     "react/prop-types": "off",
     "react/jsx-props-no-spreading": "off",
