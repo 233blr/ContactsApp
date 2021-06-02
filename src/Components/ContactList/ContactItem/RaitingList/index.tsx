@@ -22,9 +22,7 @@ const lowRatingStar = {
 
 const starsRendering = (quantity: number) => {
   const stars = new Array(quantity).fill(
-    <StarWrapper>
-      <AiFillStar />
-    </StarWrapper>,
+    <AiFillStar />,
   );
   return stars;
 };
@@ -33,7 +31,9 @@ const RatingList: FC<RatingType> = ({ rating }) => (
   <RatingWrapper style={rating < 3 ? lowRatingStar : undefined}>
     {rating === 0 || rating > 6
       ? <StarWrapper><AiOutlineStar /></StarWrapper>
-      : starsRendering(rating)}
+      : starsRendering(rating).map(
+        (item) => <StarWrapper key={Math.random() * 42}>{item}</StarWrapper>,
+      )}
   </RatingWrapper>
 );
 

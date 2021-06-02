@@ -60,14 +60,22 @@ text-decoration: underline;
 }
 `;
 
-const listItems: string[] = ['Name', 'Login', 'Email', 'Phone', 'Rating'];
+const listItems: string[] = [
+  'Name', 'Login', 'Email', 'Phone', 'Rating',
+];
 
 const Header: FC = () => (
   <HeaderWrapper>
     <H1Wrapper />
     <LiadersPageWrapper>Liaders</LiadersPageWrapper>
     <UlWrapper>
-      {listItems.map((item) => <LiWrapper key={item}>{item}</LiWrapper>)}
+      {listItems.map((item) => (
+        <LiWrapper
+          key={item}
+        >
+          {item}
+        </LiWrapper>
+      ))}
     </UlWrapper>
   </HeaderWrapper>
 );

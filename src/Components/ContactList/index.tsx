@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
 import useTypedSelector from '../../Hooks/useTypedSelector';
-import { ContactsState, ContactType } from '../../Types/getContactsReduser';
+import { ContactType } from '../../Types/contactsReduser';
 import ContactItem from './ContactItem';
 import PreLoader from '../Preloader';
 
@@ -14,7 +14,7 @@ margin: 10px;
 `;
 
 const ContactList: FC = () => {
-  const { contacts, error, loading }: ContactsState = useTypedSelector(
+  const { contacts, error, loading } = useTypedSelector(
     (store) => store.listOfContacts,
   );
 
@@ -27,7 +27,6 @@ const ContactList: FC = () => {
               <ContactItem key={contact.id} data={contact} />
             ),
           )}
-
     </ContactListWrapper>
   );
 };

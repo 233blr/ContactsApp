@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
-import { AiOutlineDelete, AiOutlineFullscreen } from 'react-icons/ai';
+import { AiOutlineDelete, AiOutlineCarryOut } from 'react-icons/ai';
 import { ContactItemType } from '../../../Types/contactItem';
 import RatingList from './RaitingList';
 
@@ -78,7 +78,7 @@ const ContactItem: FC<ContactItemType> = ({ data }) => (
     <ImgWrapper src={data.foto} alt="foto" />
     <RatingList rating={data.rating} />
     <NameWrapper>
-      {data.firstName}
+      {data.name}
       <span>
         {` ${data.lastName}`}
       </span>
@@ -91,7 +91,7 @@ const ContactItem: FC<ContactItemType> = ({ data }) => (
       type="button"
       title="Open full contact"
     >
-      <p><AiOutlineFullscreen /></p>
+      <p><AiOutlineCarryOut /></p>
     </ViewBtnWrapper>
     <DeleteBtnWrapper
       className="DeleteBtn"
