@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
 export interface ContactType {
   id: string;
-  foto: string;
-  fullFoto: string;
+  image: string;
+  fullImage: string;
   name: string;
   lastName: string;
   login: string;

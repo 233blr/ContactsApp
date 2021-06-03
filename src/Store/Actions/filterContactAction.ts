@@ -13,7 +13,6 @@ const filterContacts = (sortBy: any) => (
     payload: sortBy,
   });
   const arr = getState();
-  console.log(arr);
   const filtered = [...arr.listOfContacts.contacts].sort(
     (a: any, b: any) => {
       if (a.name > b.name) return 1;
@@ -21,7 +20,6 @@ const filterContacts = (sortBy: any) => (
       return 0;
     },
   );
-  console.log(filtered);
   dispatch({
     type: ContactsActionTypes.FILTER_CONTACTS_SUCCESS,
     payload: filtered,

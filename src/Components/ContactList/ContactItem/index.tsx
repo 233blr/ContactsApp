@@ -24,8 +24,7 @@ overflow: hidden;
 :hover > .ViewBtn {
   top: 15px;
   left: 15px;
-}
-}
+};
 `;
 
 const ImgWrapper = styled.img`
@@ -35,7 +34,7 @@ padding: 3px;
 `;
 
 const NameWrapper = styled.div`
-font-family: "Gill Sans";
+font-family: "Gill Sans",sans-serif;
 font-weight: bold;
 `;
 
@@ -75,7 +74,7 @@ transition: all 0.5s ease-in-out 0.5s;
 
 const ContactItem: FC<ContactItemType> = ({ data }) => (
   <ContactItemWrapper>
-    <ImgWrapper src={data.foto} alt="foto" />
+    <ImgWrapper src={data.image} alt="avatar" />
     <RatingList rating={data.rating} />
     <NameWrapper>
       {data.name}

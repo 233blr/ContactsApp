@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const HeaderWrapper = styled.div`
 min-height: 90px;
@@ -11,8 +12,24 @@ align-items: center;
 color:#FFF;
 `;
 
+const LeadersLinkWrapper = styled.div`
+  border: 0;
+  background-color: #FFCD24;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 3px;
+  color: #33393D;
+  :hover{
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  :active{
+    color: #666B6E;
+  }
+`;
+
 const H1Wrapper = styled.h1`
-font-family: "Gill Sans";
+font-family: "Gill Sans",sans-serif;
 font-style: italic;
 ::after {
   content: "ReactContacts"
@@ -21,22 +38,6 @@ font-style: italic;
   ::after {
     content: "RC"
   }
-}
-`;
-
-const LiadersPageWrapper = styled.div`
-border: 0;
-background-color: #FFCD24;
-padding: 10px;
-font-size: 16px;
-color: #33393D;
-border-radius: 3px;
-:hover{
-  cursor: pointer;
-  text-decoration: underline;
-}
-:active{
-  color: #666B6E;
 }
 `;
 
@@ -64,14 +65,21 @@ const listItems: string[] = [
   'Name', 'Login', 'Email', 'Phone', 'Rating',
 ];
 
+// const clickHandler = (str: string) => {
+//   console.log(str);
+// };
+
 const Header: FC = () => (
   <HeaderWrapper>
     <H1Wrapper />
-    <LiadersPageWrapper>Liaders</LiadersPageWrapper>
+    <Link style={{ textDecoration: 'none' }} to="/leaders">
+      <LeadersLinkWrapper>Leaders</LeadersLinkWrapper>
+    </Link>
     <UlWrapper>
       {listItems.map((item) => (
         <LiWrapper
           key={item}
+          // onClick={() => clickHandler(item)}
         >
           {item}
         </LiWrapper>
