@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import styled from 'styled-components';
 import { AiOutlineDelete, AiOutlineCarryOut } from 'react-icons/ai';
 import { ContactItemType } from '../../../Types/contactItem';
-import RatingList from './RaitingList';
+import { RatingList } from '../..';
 
 const ContactItemWrapper = styled.div`
 display: grid;
@@ -77,10 +77,7 @@ const ContactItem: FC<ContactItemType> = ({ data }) => (
     <ImgWrapper src={data.image} alt="avatar" />
     <RatingList rating={data.rating} />
     <NameWrapper>
-      {data.name}
-      <span>
-        {` ${data.lastName}`}
-      </span>
+      {`${data.name} ${data.lastName}`}
     </NameWrapper>
     <div>{data.phone}</div>
     <div>{data.login}</div>

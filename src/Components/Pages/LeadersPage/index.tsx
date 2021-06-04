@@ -1,21 +1,20 @@
-import React, { FC } from 'react';
-import styled from 'styled-components';
-import { BackButton, LeadersList } from '../..';
+import React, { FC, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { LeadersList, Header } from '../..';
+import getLeaders from '../../../Store/Actions/getLeadersAction';
 
 const Leaders: FC = () => {
-  const LeaderWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  max-width: 1200px;
-  height: 100vh;
-  `;
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getLeaders());
+  }, []);
 
   return (
-    <LeaderWrapper>
-      <BackButton />
+    <>
+      <Header />
       <LeadersList />
-    </LeaderWrapper>
+    </>
   );
 };
 

@@ -15,7 +15,7 @@ margin: 10px;
 
 const ContactList: FC = () => {
   const { contacts, error, loading } = useTypedSelector(
-    (store) => store.listOfContacts,
+    store => store.listOfContacts,
   );
 
   return (
