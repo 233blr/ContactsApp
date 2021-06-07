@@ -8,7 +8,7 @@ const initialState: ContactsState = {
   contacts: [],
   loading: false,
   error: null,
-  category: 'name',
+  category: null,
 };
 
 const ContactsReduser = (
@@ -36,20 +36,6 @@ const ContactsReduser = (
         loading: false,
         error: action.payload,
       };
-    case ContactsActionTypes.FILTER_CONTACTS:
-      return {
-        ...initialState,
-        loading: true,
-        error: null,
-        category: action.payload,
-      };
-    case ContactsActionTypes.FILTER_CONTACTS_SUCCESS:
-      return {
-        ...initialState,
-        contacts: action.payload,
-        loading: false,
-        error: null,
-      };
     case ContactsActionTypes.DELETE_CONTACT:
       return {
         ...initialState,
@@ -58,6 +44,20 @@ const ContactsReduser = (
         error: null,
       };
     case ContactsActionTypes.ADD_RATING:
+      return {
+        ...initialState,
+        contacts: action.payload,
+        loading: false,
+        error: null,
+      };
+    case ContactsActionTypes.FILTER_CONTACTS:
+      return {
+        ...initialState,
+        loading: true,
+        error: null,
+        category: action.payload,
+      };
+    case ContactsActionTypes.FILTER_CONTACTS_SUCCESS:
       return {
         ...initialState,
         contacts: action.payload,

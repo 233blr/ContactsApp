@@ -9,7 +9,7 @@ const initialState: LeadersState = {
   loading: false,
 };
 
-const LeadersReduser = (
+const LeadersReducer = (
   state = initialState,
   action: LeadersActions,
 ): LeadersState => {
@@ -31,4 +31,4 @@ const LeadersReduser = (
   }
 };
 
-export default LeadersReduser;
+export default LeadersReducer;

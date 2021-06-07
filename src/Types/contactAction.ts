@@ -5,6 +5,6 @@ export interface GetStateType {
     contacts: ContactType[],
     loading: boolean;
     error: null | string;
-    category: null | string;
+    category: string | null;
   }
 }

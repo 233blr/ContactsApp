@@ -17,10 +17,6 @@ align-items: center;
 color: #FFCD24;
 `;
 
-const lowRatingStar = {
-  backgroundColor: '#666B6E',
-};
-
 const starsRendering = (quantity: number) => {
   const stars = new Array(quantity).fill(
     <AiFillStar />,
@@ -29,7 +25,10 @@ const starsRendering = (quantity: number) => {
 };
 
 const RatingList: FC<RatingType> = ({ rating }) => (
-  <RatingWrapper style={rating < 3 ? lowRatingStar : undefined}>
+  <RatingWrapper style={
+    rating < 3 ? { backgroundColor: '#666B6E' } : undefined
+    }
+  >
     {rating === 0 || rating > 6
       ? <StarWrapper><AiOutlineStar /></StarWrapper>
       : starsRendering(rating).map(

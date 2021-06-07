@@ -1,6 +1,9 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
 import { Link, Route } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import useTypedSelector from '../../Hooks/useTypedSelector';
+import filterContacts from '../../Store/Actions/filterContactAction';
 
 const HeaderWrapper = styled.div`
 min-height: 90px;
@@ -65,31 +68,44 @@ const listItems: string[] = [
   'Name', 'Login', 'Email', 'Phone', 'Rating',
 ];
 
-const Header: FC = () => (
-  <HeaderWrapper>
-    <H1Wrapper />
-    <Route path="/" exact>
-      <Link style={{ textDecoration: 'none' }} to="/leaders">
-        <LeadersLinkWrapper>Leaders</LeadersLinkWrapper>
-      </Link>
-    </Route>
-    <Route path="/leaders" exact>
-      <Link style={{ textDecoration: 'none' }} to="/">
-        <LeadersLinkWrapper>Go Back</LeadersLinkWrapper>
-      </Link>
-    </Route>
-    <Route path="/" exact>
-      <UlWrapper>
-        {listItems.map(item => (
-          <LiWrapper
-            key={item}
-          >
-            {item}
-          </LiWrapper>
-        ))}
-      </UlWrapper>
-    </Route>
-  </HeaderWrapper>
-);
+const Header: FC = () => {
+  const dispatch = useDispatch();
+  const { category } = useTypedSelector(
+    store => store.listOfContacts,
+  );
+
+  return (
+    <HeaderWrapper>
+      <H1Wrapper />
+      <Route path="/" exact>
+        <Link style={{ textDecoration: 'none' }} to="/leaders">
+          <LeadersLinkWrapper>Leaders</LeadersLinkWrapper>
+        </Link>
+      </Route>
+      <Route path="/leaders" exact>
+        <Link style={{ textDecoration: 'none' }} to="/">
+          <LeadersLinkWrapper>Go Back</LeadersLinkWrapper>
+        </Link>
+      </Route>
+      <Route path="/" exact>
+        <UlWrapper>
+          {listItems.map(item => (
+            <LiWrapper
+              onClick={() => dispatch(filterContacts(item))}
+              style={
+                category === item
+                  ? { color: '#FFCD24' }
+                  : { color: '#FFF' }
+              }
+              key={item}
+            >
+              {item}
+            </LiWrapper>
+          ))}
+        </UlWrapper>
+      </Route>
+    </HeaderWrapper>
+  );
+};
 
 export default Header;

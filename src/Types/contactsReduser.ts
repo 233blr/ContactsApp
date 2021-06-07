@@ -58,14 +58,14 @@ export interface AddRatingAction {
 export type ContactsActions = FetchContactsAction
 | FetchContactsSuccessAction
 | FetchContactsErrorAction
-| FilterContactsAction
-| FilterContactsSuccessAction
 | DeleteContactsAction
-| AddRatingAction;
+| AddRatingAction
+| FilterContactsAction
+| FilterContactsSuccessAction;
 
 export interface ContactsState {
   contacts: ContactType[];
   loading: boolean;
   error: null | string;
-  category: string;
+  category: string | null;
 }

@@ -1,6 +1,10 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
-import { AiOutlineDelete, AiOutlineCarryOut } from 'react-icons/ai';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import { AiOutlineDelete, AiOutlineIdcard } from 'react-icons/ai';
+import getFullContact from '../../../Store/Actions/getFullContactAction';
+import deleteContact from '../../../Store/Actions/deleteContactAtions';
 import { ContactItemType } from '../../../Types/contactItem';
 import { RatingList } from '../..';
 
@@ -72,31 +76,47 @@ cursor: pointer;
 transition: all 0.5s ease-in-out 0.5s;
 `;
 
-const ContactItem: FC<ContactItemType> = ({ data }) => (
-  <ContactItemWrapper>
-    <ImgWrapper src={data.image} alt="avatar" />
-    <RatingList rating={data.rating} />
-    <NameWrapper>
-      {`${data.name} ${data.lastName}`}
-    </NameWrapper>
-    <div>{data.phone}</div>
-    <div>{data.login}</div>
-    <div>{data.email}</div>
-    <ViewBtnWrapper
-      className="ViewBtn"
-      type="button"
-      title="Open full contact"
-    >
-      <p><AiOutlineCarryOut /></p>
-    </ViewBtnWrapper>
-    <DeleteBtnWrapper
-      className="DeleteBtn"
-      type="button"
-      title="Delete contact"
-    >
-      <p><AiOutlineDelete /></p>
-    </DeleteBtnWrapper>
-  </ContactItemWrapper>
-);
+const ContactItem: FC<ContactItemType> = ({ data }) => {
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  const toFullPageHandler = (id: string) => {
+    dispatch(getFullContact(id));
+    history.push(`/users/${id}`);
+  };
+
+  const deleteContactHandler = (id: string) => {
+    dispatch(deleteContact(id));
+  };
+
+  return (
+    <ContactItemWrapper>
+      <ImgWrapper src={data.image} alt="avatar" />
+      <RatingList rating={data.rating} />
+      <NameWrapper>
+        {`${data.name} ${data.lastName}`}
+      </NameWrapper>
+      <div>{data.phone}</div>
+      <div>{data.login}</div>
+      <div>{data.email}</div>
+      <ViewBtnWrapper
+        className="ViewBtn"
+        type="button"
+        title="Open full contact"
+        onClick={() => toFullPageHandler(data.id)}
+      >
+        <p><AiOutlineIdcard /></p>
+      </ViewBtnWrapper>
+      <DeleteBtnWrapper
+        className="DeleteBtn"
+        type="button"
+        title="Delete contact"
+        onClick={() => deleteContactHandler(data.id)}
+      >
+        <p><AiOutlineDelete /></p>
+      </DeleteBtnWrapper>
+    </ContactItemWrapper>
+  );
+};
 
 export default ContactItem;

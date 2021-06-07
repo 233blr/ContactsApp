@@ -5,13 +5,6 @@ import {
 } from '../../Types/getFullContactAction';
 import { GetStateType } from '../../Types/contactAction';
 
-const findContact = (arr: any, item: string) => {
-  const result = [...arr.listOfContacts.contacts].filter(
-    contact => (contact.id === item),
-  );
-  return result;
-};
-
 const getFullContact = (id: string) => (
   dispatch: Dispatch<FullContactActions>, getState: () => GetStateType,
 ) => {
@@ -19,10 +12,11 @@ const getFullContact = (id: string) => (
     type: GetFullContactActionTypes.GET_FULL_CONTACT,
   });
   const state = getState();
-  const res = findContact(state, id);
   dispatch({
     type: GetFullContactActionTypes.GET_FULL_CONTACT_SUCCESS,
-    payload: res,
+    payload: [...state.listOfContacts.contacts].find(
+      contact => (contact.id === id),
+    ),
   });
 };
 

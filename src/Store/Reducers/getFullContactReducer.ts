@@ -5,11 +5,11 @@ import {
 } from '../../Types/getFullContactAction';
 
 const initialState: FullContactState = {
-  contact: [],
+  contact: null,
   loading: false,
 };
 
-const FullContactReduser = (
+const FullContactReducer = (
   state = initialState,
   action: FullContactActions,
 ): FullContactState => {
@@ -17,7 +17,7 @@ const FullContactReduser = (
     case GetFullContactActionTypes.GET_FULL_CONTACT:
       return {
         ...initialState,
-        contact: [],
+        contact: null,
         loading: true,
       };
     case GetFullContactActionTypes.GET_FULL_CONTACT_SUCCESS:
@@ -31,4 +31,4 @@ const FullContactReduser = (
   }
 };
 
-export default FullContactReduser;
+export default FullContactReducer;

@@ -4,6 +4,20 @@ import {
   LeadersActions,
 } from '../../Types/getLeadersAction';
 import { GetStateType } from '../../Types/contactAction';
+import { ContactType } from '../../Types/contactsReduser';
+
+const sortLeaders = (arr: ContactType[]) => {
+  const stateCopy = [...arr];
+  const sorted = stateCopy.sort((a, b) => {
+    if (a.rating < b.rating) return 1;
+    if (a.rating > b.rating) return -1;
+    return a.name.localeCompare(b.name);
+  });
+  if (sorted.length > 5) {
+    return sorted.slice(0, 5);
+  }
+  return sorted;
+};
 
 const getLeaders = () => (
   dispatch: Dispatch<LeadersActions>, getState: () => GetStateType,
@@ -12,14 +26,7 @@ const getLeaders = () => (
     type: LeadersActionTypes.GET_LEADERS,
   });
   const state = getState();
-  const filtered = [...state.listOfContacts.contacts].filter(
-    contact => (contact.rating > 2),
-  );
-  const leaders = [...filtered].sort((a, b) => {
-    if (a.rating < b.rating) return 1;
-    if (a.rating > b.rating) return -1;
-    return a.name.localeCompare(b.name);
-  });
+  const leaders = sortLeaders(state.listOfContacts.contacts);
   dispatch({
     type: LeadersActionTypes.GET_LEADERS_SUCCESS,
     payload: leaders,
