@@ -1,0 +1,70 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "airbnb"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react",
+    "@typescript-eslint"
+  ],
+  "rules": {
+    "no-nested-ternary": "off",
+    "no-shadow": "off",
+    "no-param-reassign": "off",
+    "@typescript-eslint/no-shadow": ["error"],
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": ["error"],
+    "no-console": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "arrow-parens": [2, "as-needed", { "requireForBlockBody": true }],
+    "arrow-body-style": [
+      "error",
+      "as-needed", 
+      { "requireReturnForObjectLiteral": true }
+    ],
+    "react/prop-types": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".ts",
+          ".tsx"
+        ]
+      }
+    ],
+    "import/extensions": "off",
+    "react/jsx-max-props-per-line": [
+      1,
+      {
+        "maximum": 3
+      }
+    ],
+    "max-len": [
+      "warn",
+      {
+        "code": 80
+      }
+    ]
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    }
+  }
+}
+

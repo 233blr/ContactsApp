@@ -20,7 +20,13 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": [
-    "src"
+  "include": ["src"],
+  "paths": {
+    "Components/*": ["src/Components/*"],
+    "Conteiners/*": ["src/Containers/*"],
+  },
+  "types": [
+    "jest",
+    "styled-components-react-native"
   ]
 }
