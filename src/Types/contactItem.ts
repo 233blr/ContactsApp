@@ -1,4 +1,4 @@
-import { ContactType } from './contactsReduser';
+import { ContactType } from './contactsReducer';
 
 export type ContactItemType = {
   key: string,

@@ -3,7 +3,7 @@ import { Dispatch } from 'redux';
 import {
   ContactsActionTypes,
   ContactsActions,
-} from '../../Types/contactsReduser';
+} from '../../Types/contactsReducer';
 import { GetStateType } from '../../Types/contactAction';
 
 const deleteContact = (id: string) => (

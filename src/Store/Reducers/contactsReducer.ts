@@ -2,7 +2,7 @@ import {
   ContactsActions,
   ContactsState,
   ContactsActionTypes,
-} from '../../Types/contactsReduser';
+} from '../../Types/contactsReducer';
 
 const initialState: ContactsState = {
   contacts: [],
@@ -54,7 +54,6 @@ const ContactsReduser = (
       return {
         ...initialState,
         loading: true,
-        error: null,
         category: action.payload,
       };
     case ContactsActionTypes.FILTER_CONTACTS_SUCCESS:
@@ -62,7 +61,6 @@ const ContactsReduser = (
         ...initialState,
         contacts: action.payload,
         loading: false,
-        error: null,
       };
     default:
       return state;

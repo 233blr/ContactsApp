@@ -2,8 +2,13 @@ import React, { FC, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { BrowserRouter, Route } from 'react-router-dom';
 import styled from 'styled-components';
-import fetchContacts from '../Store/Actions/getContactsAction';
-import { HomePage, LeadersPage, ContactPage } from '../Components';
+import fetchContacts from '../Store/Actions/fetchContactsAction';
+import {
+  HomePage,
+  LeadersPage,
+  ContactPage,
+  ErrorPage,
+} from '../Components';
 
 const AppWrapper = styled.div`
 display: flex;
@@ -31,6 +36,9 @@ const App: FC = () => {
         </Route>
         <Route path="/users/:id">
           <ContactPage />
+        </Route>
+        <Route path="/not-found" exact>
+          <ErrorPage />
         </Route>
       </AppWrapper>
     </BrowserRouter>

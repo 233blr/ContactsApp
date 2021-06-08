@@ -1,9 +1,9 @@
-export interface Icontact {
+export interface FetchContactType {
   login: {
     uuid: string,
     username: string,
   },
-  picture:{
+  picture: {
     medium: string,
     large: string,
   },
@@ -15,8 +15,8 @@ export interface Icontact {
   phone: string,
 }
 
-export interface Idata {
+export interface FetchDataType {
   data: {
-    results: Icontact[]
+    results: FetchContactType[]
   }
 }

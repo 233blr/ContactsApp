@@ -1,7 +1,8 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
+import { useHistory } from 'react-router-dom';
 import useTypedSelector from '../../Hooks/useTypedSelector';
-import { ContactType } from '../../Types/contactsReduser';
+import { ContactType } from '../../Types/contactsReducer';
 import ContactItem from './ContactItem';
 import PreLoader from '../Preloader';
 
@@ -14,19 +15,21 @@ margin: 10px;
 `;
 
 const ContactList: FC = () => {
+  const history = useHistory();
   const { contacts, error, loading } = useTypedSelector(
     store => store.listOfContacts,
   );
 
+  if (error) history.push('/not-found');
+
   return (
     <ContactListWrapper>
       {loading ? <PreLoader />
-        : error ? <h3>{error}</h3>
-          : contacts.map(
-            (contact: ContactType) => (
-              <ContactItem key={contact.id} data={contact} />
-            ),
-          )}
+        : contacts.map(
+          (contact: ContactType) => (
+            <ContactItem key={contact.id} data={contact} />
+          ),
+        )}
     </ContactListWrapper>
   );
 };
