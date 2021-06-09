@@ -4,8 +4,9 @@ import {
   ContactsActions,
   ContactsActionTypes,
   ContactType,
-} from '../../Types/contactsReduser';
-import { Icontact, Idata } from '../../Types/getContactsAction';
+} from '../../Types/contactsReducer';
+import { FetchDataType } from '../../Types/getContactsAction';
+import parseContactsData from '../../Services/ParseContactsData';
 
 const URL = 'https://randomuser.me/api/?results=50';
 
@@ -14,19 +15,7 @@ const fetchContacts = () => async (dispatch: Dispatch<ContactsActions>) => {
     dispatch({ type: ContactsActionTypes.FETCH_CONTACTS });
     const response: ContactType[] = await axios.get(URL)
       .then(
-        ({ data }: Idata) => data.results.map((contact: Icontact) => {
-          return {
-            id: contact.login.uuid,
-            image: contact.picture.medium,
-            fullImage: contact.picture.large,
-            name: contact.name.first,
-            lastName: contact.name.last,
-            login: contact.login.username,
-            email: contact.email,
-            phone: contact.phone,
-            rating: 0,
-          };
-        }),
+        ({ data }: FetchDataType) => parseContactsData(data.results),
       );
     dispatch({
       type: ContactsActionTypes.FETCH_CONTACTS_SUCCESS,

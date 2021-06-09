@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 export interface ContactType {
   id: string;
   image: string;
@@ -56,12 +55,12 @@ export interface AddRatingAction {
 }
 
 export type ContactsActions = FetchContactsAction
-| FetchContactsSuccessAction
-| FetchContactsErrorAction
-| DeleteContactsAction
-| AddRatingAction
-| FilterContactsAction
-| FilterContactsSuccessAction;
+  | FetchContactsSuccessAction
+  | FetchContactsErrorAction
+  | DeleteContactsAction
+  | AddRatingAction
+  | FilterContactsAction
+  | FilterContactsSuccessAction;
 
 export interface ContactsState {
   contacts: ContactType[];

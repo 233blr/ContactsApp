@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { ContactType } from './contactsReduser';
+import { ContactType } from './contactsReducer';
 
 export enum GetFullContactActionTypes {
   GET_FULL_CONTACT = 'GET_FULL_CONTACT',
@@ -16,7 +16,7 @@ export interface LinkToFullContactPageAction {
 }
 
 export type FullContactActions = GetFullContactAction
-| LinkToFullContactPageAction;
+  | LinkToFullContactPageAction;
 
 export interface FullContactState {
   contact: ContactType | undefined | null;

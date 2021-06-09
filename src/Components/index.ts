@@ -1,6 +1,6 @@
 export { default as Header } from './Header';
 export { default as ContactList } from './ContactList';
-export { default as NotFound } from './Pages/NotFound';
+export { default as ErrorPage } from './Pages/ErrorPage';
 export { default as ContactPage } from './Pages/ContactPage';
 export { default as LeadersPage } from './Pages/LeadersPage';
 export { default as PreLoader } from './Preloader';

@@ -1,10 +1,10 @@
-import { ContactType } from './contactsReduser';
+import { ContactType } from './contactsReducer';
 
 export interface GetStateType {
   listOfContacts: {
     contacts: ContactType[],
     loading: boolean;
     error: null | string;
-    category: string | null;
+    category: null | string;
   }
 }

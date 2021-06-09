@@ -76,6 +76,10 @@ cursor: pointer;
 transition: all 0.5s ease-in-out 0.5s;
 `;
 
+const EmailWrapper = styled.div`
+margin-bottom: 5px;
+`;
+
 const ContactItem: FC<ContactItemType> = ({ data }) => {
   const dispatch = useDispatch();
   const history = useHistory();
@@ -98,7 +102,7 @@ const ContactItem: FC<ContactItemType> = ({ data }) => {
       </NameWrapper>
       <div>{data.phone}</div>
       <div>{data.login}</div>
-      <div>{data.email}</div>
+      <EmailWrapper>{data.email}</EmailWrapper>
       <ViewBtnWrapper
         className="ViewBtn"
         type="button"

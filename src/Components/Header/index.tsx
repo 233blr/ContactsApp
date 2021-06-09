@@ -1,8 +1,7 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import styled from 'styled-components';
 import { Link, Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import useTypedSelector from '../../Hooks/useTypedSelector';
 import filterContacts from '../../Store/Actions/filterContactAction';
 
 const HeaderWrapper = styled.div`
@@ -70,9 +69,8 @@ const listItems: string[] = [
 
 const Header: FC = () => {
   const dispatch = useDispatch();
-  const { category } = useTypedSelector(
-    store => store.listOfContacts,
-  );
+
+  const [currentCategory, setCategory] = useState('');
 
   return (
     <HeaderWrapper>
@@ -91,9 +89,12 @@ const Header: FC = () => {
         <UlWrapper>
           {listItems.map(item => (
             <LiWrapper
-              onClick={() => dispatch(filterContacts(item))}
+              onClick={() => {
+                dispatch(filterContacts(item));
+                setCategory(item);
+              }}
               style={
-                category === item
+                currentCategory === item
                   ? { color: '#FFCD24' }
                   : { color: '#FFF' }
               }

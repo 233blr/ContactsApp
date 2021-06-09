@@ -1,5 +1,4 @@
-/* eslint-disable no-unused-vars */
-import { ContactType } from './contactsReduser';
+import { ContactType } from './contactsReducer';
 
 export enum LeadersActionTypes {
   GET_LEADERS = 'GET_LEADERS',
@@ -16,7 +15,7 @@ export interface GetLeadersActionSuccessAction {
 }
 
 export type LeadersActions = GetLeadersAction
-| GetLeadersActionSuccessAction;
+  | GetLeadersActionSuccessAction;
 
 export interface LeadersState {
   leaders: ContactType[];
