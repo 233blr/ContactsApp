@@ -4,9 +4,9 @@ import {
   ContactsActions,
 } from '../../Types/contactsReducer';
 import { GetStateType } from '../../Types/contactAction';
-import sortContacts from '../../Services/FilterContacts';
+import sortContacts from '../../Services/SortContacts';
 
-const filterContacts = (sortBy: string) => (
+const sortingContacts = (sortBy: string) => (
   dispatch: Dispatch<ContactsActions>,
   getState: () => GetStateType,
 ) => {
@@ -25,4 +25,4 @@ const filterContacts = (sortBy: string) => (
   });
 };
 
-export default filterContacts;
+export default sortingContacts;

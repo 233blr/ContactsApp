@@ -2,7 +2,7 @@ import React, { FC, useState } from 'react';
 import styled from 'styled-components';
 import { Link, Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import filterContacts from '../../Store/Actions/filterContactAction';
+import sortingContacts from '../../Store/Actions/sortContactAction';
 
 const HeaderWrapper = styled.div`
 min-height: 90px;
@@ -90,7 +90,7 @@ const Header: FC = () => {
           {listItems.map(item => (
             <LiWrapper
               onClick={() => {
-                dispatch(filterContacts(item));
+                dispatch(sortingContacts(item));
                 setCategory(item);
               }}
               style={
