@@ -15,7 +15,7 @@ const parseContactsData = (arr: FetchContactType[]) => {
       rating: 0,
     };
   });
-  LocalStorage.set(result);
+  LocalStorage.init(result);
   return result;
 };
 

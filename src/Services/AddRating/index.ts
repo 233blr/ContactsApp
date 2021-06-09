@@ -14,7 +14,7 @@ const ratingHandler = (
       }
     },
   );
-  LocalStorage.set(filtered);
+  LocalStorage.set(LocalStorage.parse(filtered));
   return filtered;
 };
 
