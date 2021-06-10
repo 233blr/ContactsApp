@@ -27,7 +27,7 @@ const App: FC = () => {
 
   return (
     <BrowserRouter>
-      <AppWrapper>
+      <AppWrapper data-testid="appContainer">
         <Route path="/" exact>
           <HomePage />
         </Route>
