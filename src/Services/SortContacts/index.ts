@@ -1,7 +1,6 @@
 import { ContactType } from '../../Types/contactsReducer';
-import ValuesTypes from '../../Types/sortContacts';
 
-const sortContacts = (value: ValuesTypes, arr: ContactType[]) => {
+const sortContacts = (value: string, arr: ContactType[]) => {
   const contacts = [...arr];
   if (value === 'rating') {
     contacts.sort(
@@ -9,7 +8,7 @@ const sortContacts = (value: ValuesTypes, arr: ContactType[]) => {
     );
   } else {
     contacts.sort(
-      (a, b) => {
+      (a: any, b: any) => {
         if (a[value] > b[value]) return 1;
         if (a[value] < b[value]) return -1;
         return 0;
