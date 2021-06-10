@@ -1,23 +1,23 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import { Provider } from 'react-redux';
-import App from '../../Containers';
+import ContactList from '../../Components/ContactList';
 import store from '../../Store';
 
-describe('App test', () => {
+describe('ContactList test', () => {
   let container;
 
   beforeEach(() => {
     container = render(
       <Provider store={store}>
-        <App />
+        <ContactList />
       </Provider>,
     );
   });
 
-  test('should render App component', () => {
+  test('should render ContactList component', () => {
     const { getByTestId } = container;
-    const appContainer = getByTestId('appContainer');
-    expect(appContainer).toBeDefined();
+    const ContactListComponent = getByTestId('contactListComponent');
+    expect(ContactListComponent).toBeDefined();
   });
 });

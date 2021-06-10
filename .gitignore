@@ -28,3 +28,4 @@ yarn-error.log*
 /.vscode
 data.md
 /coverage
+/src/Tests/Conteiners/__snapshots__

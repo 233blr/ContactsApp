@@ -38,7 +38,7 @@ const App: FC = () => {
           <ContactPage />
         </Route>
         <Route path="/not-found" exact>
-          <ErrorPage />
+          <ErrorPage data-testid="error-page" />
         </Route>
       </AppWrapper>
     </BrowserRouter>

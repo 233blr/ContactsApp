@@ -94,7 +94,7 @@ const ContactItem: FC<ContactItemType> = ({ data }) => {
   };
 
   return (
-    <ContactItemWrapper>
+    <ContactItemWrapper data-testid="contactItemComponent">
       <ImgWrapper src={data.image} alt="avatar" />
       <RatingList rating={data.rating} />
       <NameWrapper>
@@ -104,6 +104,7 @@ const ContactItem: FC<ContactItemType> = ({ data }) => {
       <div>{data.login}</div>
       <EmailWrapper>{data.email}</EmailWrapper>
       <ViewBtnWrapper
+        data-testid="viewBtn"
         className="ViewBtn"
         type="button"
         title="Open full contact"
@@ -112,6 +113,7 @@ const ContactItem: FC<ContactItemType> = ({ data }) => {
         <p><AiOutlineIdcard /></p>
       </ViewBtnWrapper>
       <DeleteBtnWrapper
+        data-testid="deleteBtn"
         className="DeleteBtn"
         type="button"
         title="Delete contact"
