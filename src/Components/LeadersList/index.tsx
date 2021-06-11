@@ -22,7 +22,7 @@ const LeadersList: FC = () => {
   );
 
   return (
-    <LeadersListWrapper>
+    <LeadersListWrapper data-testid="leadersListComponent">
       {loading ? <PreLoader />
         : leaders.length === 0
           ? <NoLeadersWrapper>No Leders 🧐!</NoLeadersWrapper>

@@ -1,10 +1,10 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import { Provider } from 'react-redux';
-import ContactItem from '../../../Components/ContactList/ContactItem';
+import LiaderItem from '../../../Components/LeadersList/LeaderItem';
 import store from '../../../Store';
 
-describe('ContactItem test', () => {
+describe('LeaderItem test', () => {
   const item = {
     "id": "dc106cfd-999c-49b3-a14f-2765a140c5d9",
     "image": "https://randomuser.me/api/portraits/med/men/91.jpg",
@@ -16,24 +16,12 @@ describe('ContactItem test', () => {
     "phone": "(301)-665-1243",
     "rating": 0
   };
-
-  let container;
-
-  beforeEach(() => {
-    container = render(
+  test('should render LeadertItem component', () => {
+    const { getByTestId } = render(
       <Provider store={store}>
-        <ContactItem key="hello" data={item} />
+        <LiaderItem key="hello" data={item} />
       </Provider>,
     );
-  });
-
-  test('should render ContactItem component', () => {
-    const ContactItemComponent = container.getByTestId('contactItemComponent');
-    expect(ContactItemComponent).toBeDefined();
-  });
-
-  test('should call toFullPageHandler function', () => {
-    const button = container.getByTestId('viewBtn');
-    expect(button).toBeDefined();
+    expect(getByTestId('leaderItemComponent')).toBeDefined();
   });
 });

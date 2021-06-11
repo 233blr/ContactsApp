@@ -28,7 +28,7 @@ color: #FFCD24;
 `;
 
 const LeaderItem: FC<ContactItemType> = ({ data }) => (
-  <LeaderItemWrapper>
+  <LeaderItemWrapper data-testid="leaderItemComponent">
     <PWrapper>{`${data.name} ${data.lastName}`}</PWrapper>
     <RatingWrapper><RatingList rating={data.rating} /></RatingWrapper>
   </LeaderItemWrapper>
