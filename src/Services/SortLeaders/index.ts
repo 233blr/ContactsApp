@@ -1,8 +1,7 @@
 import { ContactType } from '../../Types/contactsReducer';
 
 const sortLeaders = (arr: ContactType[]) => {
-  const stateCopy = [...arr];
-  const leaders = stateCopy.filter(item => item.rating > 3);
+  const leaders = [...arr].filter(item => item.rating > 3);
   if (leaders.length) {
     leaders.sort((a, b) => {
       if (a.rating < b.rating) return 1;
