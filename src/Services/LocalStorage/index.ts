@@ -14,8 +14,10 @@ const LocalStorage = {
   init(data: ContactType[]) {
     const localRating: StorageType[] = this.get();
     if (localRating) {
-      const localMap = new Map(localRating.map(loc => [loc.id, loc.rating]));
-      const dataMap = data.map(({
+      const localRatingColection = new Map(
+        localRating.map(loc => [loc.id, loc.rating]),
+      );
+      const dataColection = data.map(({
         id,
         image,
         fullImage,
@@ -35,12 +37,12 @@ const LocalStorage = {
           login,
           email,
           phone,
-          rating: localMap.get(id) || rating,
+          rating: localRatingColection.get(id) || rating,
         };
       });
-      const result = this.parse(dataMap);
+      const result = this.parse(dataColection);
       result.forEach((contact) => {
-        ratingHandler(contact.id, contact.rating, dataMap);
+        ratingHandler(contact.id, contact.rating, dataColection);
       });
     } else {
       this.set([]);

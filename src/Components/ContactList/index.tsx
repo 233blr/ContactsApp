@@ -23,7 +23,7 @@ const ContactList: FC = () => {
   if (error) history.push('/not-found');
 
   return (
-    <ContactListWrapper>
+    <ContactListWrapper data-testid="contactListComponent">
       {loading ? <PreLoader />
         : contacts.map(
           (contact: ContactType) => (

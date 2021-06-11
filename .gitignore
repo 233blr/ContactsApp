@@ -27,3 +27,5 @@ yarn-error.log*
 /.idea
 /.vscode
 data.md
+/coverage
+/src/Tests/Conteiners/__snapshots__

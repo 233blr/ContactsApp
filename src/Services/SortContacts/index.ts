@@ -4,7 +4,7 @@ const sortContacts = (value: string, arr: ContactType[]) => {
   const contacts = [...arr];
   if (value === 'rating') {
     contacts.sort(
-      (a: any, b: any) => (a[value] < b[value] ? 1 : -1),
+      (a, b) => (a[value] < b[value] ? 1 : -1),
     );
   } else {
     contacts.sort(
