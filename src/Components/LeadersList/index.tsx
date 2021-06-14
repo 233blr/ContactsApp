@@ -1,7 +1,9 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import styled from 'styled-components';
+import { useDispatch } from 'react-redux';
 import LeaderItem from './LeaderItem';
 import useTypedSelector from '../../Hooks/useTypedSelector';
+import getLeaders from '../../Store/Actions/getLeadersAction';
 import { PreLoader } from '../index';
 
 const LeadersListWrapper = styled.div`
@@ -17,6 +19,12 @@ text-align: center;
 `;
 
 const LeadersList: FC = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getLeaders());
+  }, []);
+
   const { leaders, loading } = useTypedSelector(
     store => store.listOfLeaders,
   );

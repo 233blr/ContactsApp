@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import useTypedSelector from '../../../Hooks/useTypedSelector';
+import useTypedSelector from '../../Hooks/useTypedSelector';
 
 const DivWrapper = styled.div`
 width: 100%;
