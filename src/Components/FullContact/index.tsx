@@ -108,7 +108,7 @@ const FullContact: FC = () => {
   }, []);
 
   return (
-    <DivWrapper>
+    <DivWrapper data-testid="fullContactComponent">
       <ContactWrapper>
         <ImgWrapper src={contact?.fullImage} alt={contact?.name} />
         <RatingBodyWrapper>
