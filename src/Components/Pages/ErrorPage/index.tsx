@@ -17,7 +17,7 @@ const ErrorPage: React.FC = () => {
   );
 
   return (
-    <DivWrapper>
+    <DivWrapper data-testid="errorPage">
       <p>{error}</p>
     </DivWrapper>
   );
