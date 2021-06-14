@@ -25,7 +25,9 @@ const starsRendering = (quantity: number) => {
 };
 
 const RatingList: FC<RatingType> = ({ rating }) => (
-  <RatingWrapper style={
+  <RatingWrapper
+    data-testid="ratingWrapperComponent"
+    style={
     rating < 3 ? { backgroundColor: '#666B6E' } : undefined
     }
   >
