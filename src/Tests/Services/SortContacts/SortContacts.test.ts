@@ -24,11 +24,32 @@ describe("Sort contacts function", () => {
       "phone": "015396 35342",
       "rating": 5
     },
+    {
+      "id": "003",
+      "image": "https://randomuser.me/api/portraits/med/women/61.jpg",
+      "fullImage": "https://randomuser.me/api/portraits/women/61.jpg",
+      "name": "Arin",
+      "lastName": "Morrison",
+      "login": "brownwolf324",
+      "email": "erin.morrison@example.com",
+      "phone": "015396 35342",
+      "rating": 5
+    },
   ];
 
   test("should return a array of objects sorted by rating", () => {
     const fn = sortContacts('rating', state);
     expect(fn).toStrictEqual([{
+      "id": "003",
+      "image": "https://randomuser.me/api/portraits/med/women/61.jpg",
+      "fullImage": "https://randomuser.me/api/portraits/women/61.jpg",
+      "name": "Arin",
+      "lastName": "Morrison",
+      "login": "brownwolf324",
+      "email": "erin.morrison@example.com",
+      "phone": "015396 35342",
+      "rating": 5
+    }, {
       "id": "002",
       "image": "https://randomuser.me/api/portraits/med/women/61.jpg",
       "fullImage": "https://randomuser.me/api/portraits/women/61.jpg",
@@ -38,8 +59,7 @@ describe("Sort contacts function", () => {
       "email": "erin.morrison@example.com",
       "phone": "015396 35342",
       "rating": 5
-    },
-    {
+      }, {
       "id": "001",
       "image": "https://randomuser.me/api/portraits/med/men/73.jpg",
       "fullImage": "https://randomuser.me/api/portraits/men/73.jpg",
@@ -53,10 +73,19 @@ describe("Sort contacts function", () => {
     ]);
   });
 
-  test("should return a array of objects sorted by rating", () => {
+  test("should return a array of objects sorted by name", () => {
     const fn = sortContacts('name', state);
-    expect(fn).toStrictEqual([
-      {
+    expect(fn).toStrictEqual([{
+      "id": "003",
+      "image": "https://randomuser.me/api/portraits/med/women/61.jpg",
+      "fullImage": "https://randomuser.me/api/portraits/women/61.jpg",
+      "name": "Arin",
+      "lastName": "Morrison",
+      "login": "brownwolf324",
+      "email": "erin.morrison@example.com",
+      "phone": "015396 35342",
+      "rating": 5
+    }, {
         "id": "001",
         "image": "https://randomuser.me/api/portraits/med/men/73.jpg",
         "fullImage": "https://randomuser.me/api/portraits/men/73.jpg",

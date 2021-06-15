@@ -4,10 +4,11 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import styled from 'styled-components';
 import fetchContacts from '../Store/Actions/fetchContactsAction';
 import {
-  HomePage,
-  LeadersPage,
-  ContactPage,
+  ContactList,
+  LeadersList,
+  FullContact,
   ErrorPage,
+  Header,
 } from '../Components';
 
 const AppWrapper = styled.div`
@@ -28,17 +29,18 @@ const App: FC = () => {
   return (
     <BrowserRouter>
       <AppWrapper data-testid="appContainer">
+        <Header />
         <Route path="/" exact>
-          <HomePage />
+          <ContactList />
         </Route>
         <Route path="/leaders" exact>
-          <LeadersPage />
+          <LeadersList />
         </Route>
         <Route path="/users/:id">
-          <ContactPage />
+          <FullContact />
         </Route>
         <Route path="/not-found" exact>
-          <ErrorPage data-testid="error-page" />
+          <ErrorPage />
         </Route>
       </AppWrapper>
     </BrowserRouter>

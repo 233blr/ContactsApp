@@ -10,9 +10,8 @@ import {
   AiFillStar,
 } from 'react-icons/ai';
 import { useDispatch } from 'react-redux';
-import useTypedSelector from '../../../Hooks/useTypedSelector';
-import { Header } from '../..';
-import addRating from '../../../Store/Actions/addRatingAction';
+import useTypedSelector from '../../Hooks/useTypedSelector';
+import addRating from '../../Store/Actions/addRatingAction';
 
 const DivWrapper = styled.div`
 height: 100vh;
@@ -78,7 +77,7 @@ font-size: 26px;
 }
 `;
 
-const ContactPage: FC = () => {
+const FullContact: FC = () => {
   const history = useHistory();
   const dispatch = useDispatch();
 
@@ -109,50 +108,47 @@ const ContactPage: FC = () => {
   }, []);
 
   return (
-    <>
-      <Header />
-      <DivWrapper>
-        <ContactWrapper>
-          <ImgWrapper src={contact?.fullImage} alt={contact?.name} />
-          <RatingBodyWrapper>
-            {clicked.map((star, index) => (
-              <AiFillStar
-                key={uuidv4()}
-                onClick={() => handleRatingClick(index)}
-                className="stars"
-                style={star ? { color: '#FFCD24' } : { color: '#666B6E' }}
-              />
-            ))}
-          </RatingBodyWrapper>
-          <ItemWrapper>
-            <SpanWrapper><AiOutlineUser /></SpanWrapper>
-            <span>{`${contact?.name} ${contact?.lastName}`}</span>
-            <span />
-          </ItemWrapper>
-          <ItemWrapper>
-            <SpanWrapper><AiOutlineCompass /></SpanWrapper>
-            <span>{contact?.login}</span>
-            <span />
-          </ItemWrapper>
-          <ItemWrapper>
-            <SpanWrapper><AiOutlinePhone /></SpanWrapper>
-            <span>{contact?.phone}</span>
-            <span />
-          </ItemWrapper>
-          <ItemWrapper>
-            <SpanWrapper><AiOutlineMail /></SpanWrapper>
-            <span>{contact?.email}</span>
-            <span />
-          </ItemWrapper>
-          <ButtonWrapper
-            type="button"
-            onClick={goBack}
-          >
-            Go Back
-          </ButtonWrapper>
-        </ContactWrapper>
-      </DivWrapper>
-    </>
+    <DivWrapper data-testid="fullContactComponent">
+      <ContactWrapper>
+        <ImgWrapper src={contact?.fullImage} alt={contact?.name} />
+        <RatingBodyWrapper>
+          {clicked.map((star, index) => (
+            <AiFillStar
+              key={uuidv4()}
+              onClick={() => handleRatingClick(index)}
+              className="stars"
+              style={star ? { color: '#FFCD24' } : { color: '#666B6E' }}
+            />
+          ))}
+        </RatingBodyWrapper>
+        <ItemWrapper>
+          <SpanWrapper><AiOutlineUser /></SpanWrapper>
+          <span>{`${contact?.name} ${contact?.lastName}`}</span>
+          <span />
+        </ItemWrapper>
+        <ItemWrapper>
+          <SpanWrapper><AiOutlineCompass /></SpanWrapper>
+          <span>{contact?.login}</span>
+          <span />
+        </ItemWrapper>
+        <ItemWrapper>
+          <SpanWrapper><AiOutlinePhone /></SpanWrapper>
+          <span>{contact?.phone}</span>
+          <span />
+        </ItemWrapper>
+        <ItemWrapper>
+          <SpanWrapper><AiOutlineMail /></SpanWrapper>
+          <span>{contact?.email}</span>
+          <span />
+        </ItemWrapper>
+        <ButtonWrapper
+          type="button"
+          onClick={goBack}
+        >
+          Go Back
+        </ButtonWrapper>
+      </ContactWrapper>
+    </DivWrapper>
   );
 };
-export default ContactPage;
+export default FullContact;
