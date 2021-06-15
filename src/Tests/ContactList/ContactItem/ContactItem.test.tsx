@@ -1,6 +1,8 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
+import { createMemoryHistory } from 'history';
 import { Provider } from 'react-redux';
+import { Router } from 'react-router-dom';
 import ContactItem from '../../../Components/ContactList/ContactItem';
 import store from '../../../Store';
 
@@ -20,9 +22,12 @@ describe('ContactItem test', () => {
   let container;
 
   beforeEach(() => {
+    const history = createMemoryHistory();
     container = render(
       <Provider store={store}>
-        <ContactItem key="hello" data={item} />
+        <Router history={history}>
+          <ContactItem key="hello" data={item} />
+        </Router>
       </Provider>,
     );
   });
@@ -34,6 +39,7 @@ describe('ContactItem test', () => {
 
   test('should call toFullPageHandler function', () => {
     const button = container.getByTestId('viewBtn');
-    expect(button).toBeDefined();
+    fireEvent.click(button);
+    expect(screen.getByText(/Guy Baker/i)).toBeInTheDocument();
   });
 });
