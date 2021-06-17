@@ -11,4 +11,5 @@ Stack:
 - styled-components
 - React-testing-library
 - Jest
+- axios
 - eslint
