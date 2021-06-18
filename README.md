@@ -13,3 +13,4 @@ Stack:
 - Jest
 - axios
 - eslint
+- random user generator API
