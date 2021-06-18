@@ -33,7 +33,7 @@ const LeadersList: FC = () => {
     <LeadersListWrapper data-testid="leadersListComponent">
       {loading ? <PreLoader />
         : leaders.length === 0
-          ? <NoLeadersWrapper>No Leders 🧐!</NoLeadersWrapper>
+          ? <NoLeadersWrapper>No Leaders 🧐!</NoLeadersWrapper>
           : leaders.map(item => (
             <LeaderItem
               key={item.id}
