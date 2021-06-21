@@ -49,14 +49,15 @@ const LocalStorage = {
     }
   },
   parse(data: ContactType[] | StorageType[]) {
-    const filtered = data.filter(item => item.rating > 0);
-    const parsedData = filtered.map((item) => {
-      return {
-        id: item.id,
-        rating: item.rating,
-      };
-    });
-    return parsedData;
+    const filtered = data
+      .filter(item => item.rating > 0)
+      .map((item) => {
+        return {
+          id: item.id,
+          rating: item.rating,
+        };
+      });
+    return filtered;
   },
 };
 
