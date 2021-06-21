@@ -19,20 +19,19 @@ const DivWrapper = styled.div`
 
 const ContactWrapper = styled.div`
   display: grid;
-  grid-template-rows: 260px;
+  grid-template-rows: 200px;
   grid-template-areas:
   'img' 'img' 'rating' 'name' 'login' 'phone' 'email' 'button';
   align-items: center;
   justify-items: center;
-  gap: 15px 10px;
+  gap: 30px 10px;
   position: relative;
   border-radius: 5px;
   background-color: #FFF;
-  box-shadow: inset 0 130px #9DC8E4;
-  height: 80vh;
 `;
 
 const ImgWrapper = styled.img`
+  margin-top: 40px;
   width: 200px;
   height: 200px;
   border-radius: 50%;
@@ -40,7 +39,6 @@ const ImgWrapper = styled.img`
 `;
 
 const ButtonWrapper = styled.button`
-  position: absolute;
   bottom: 15px;
   border: 0;
   background-color: #FFCD24;
