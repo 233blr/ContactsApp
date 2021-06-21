@@ -6,18 +6,13 @@ import store from '../../Store';
 
 describe('RatingWrapper test', () => {
   const ratingData = 5;
-  let container;
 
-  beforeEach(() => {
-    container = render(
+  test('should render RatingWrapper component', () => {
+    const RatingComponent = render(
       <Provider store={store}>
         <RatingWrapper rating={ratingData} />
       </Provider>,
-    );
-  });
-
-  test('should render RatingWrapper component', () => {
-    const RatingComponent = container.getByTestId('ratingWrapperComponent');
+    ).getByTestId('ratingWrapperComponent');
     expect(RatingComponent).toBeDefined();
   });
 });

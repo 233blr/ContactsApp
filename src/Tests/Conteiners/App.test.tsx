@@ -1,17 +1,19 @@
 import React from 'react';
-import { render, screen, fireEvent, getByTestId } from '@testing-library/react';
+import {
+  render, screen, fireEvent,
+} from '@testing-library/react';
 import { Provider } from 'react-redux';
 import App from '../../Containers';
 import store from '../../Store';
 
 describe('App test', () => {
   test('should render App component', () => {
-    const { getByTestId } = render(
+    const AppComponent = render(
       <Provider store={store}>
         <App />
       </Provider>,
-    );
-    expect(getByTestId('appContainer')).toBeDefined();
+    ).getByTestId('appContainer');
+    expect(AppComponent).toBeDefined();
   });
 
   test('should render ContactList component', () => {

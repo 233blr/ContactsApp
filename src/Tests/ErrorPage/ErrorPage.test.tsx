@@ -5,18 +5,12 @@ import ErrorPage from '../../Components/DisplayError';
 import store from '../../Store';
 
 describe('ErrorPage test', () => {
-  let container;
-
-  beforeEach(() => {
-    container = render(
+  test('should render ErrorPage component', () => {
+    const ErrorPageComponent = render(
       <Provider store={store}>
         <ErrorPage />
       </Provider>,
-    );
-  });
-
-  test('should render ErrorPage component', () => {
-    const ErrorPageComponent = container.getByTestId('errorPage');
+    ).getByTestId('errorPage');
     expect(ErrorPageComponent).toBeDefined();
   });
 });

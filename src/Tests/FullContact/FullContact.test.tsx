@@ -5,18 +5,12 @@ import FullContact from '../../Components/FullContact';
 import store from '../../Store';
 
 describe('FullContact test', () => {
-  let container;
-
-  beforeEach(() => {
-    container = render(
+  test('should render FullContact component', () => {
+    const FullContactComponent = render(
       <Provider store={store}>
         <FullContact />
       </Provider>,
-    );
-  });
-
-  test('should render FullContact component', () => {
-    const FullContactComponent = container.getByTestId('fullContactComponent');
+    ).getByTestId('fullContactComponent');
     expect(FullContactComponent).toBeDefined();
   });
 });

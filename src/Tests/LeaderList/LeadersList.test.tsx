@@ -5,23 +5,12 @@ import LeadersList from '../../Components/LeadersList';
 import store from '../../Store';
 
 describe('LiadersList test', () => {
-  const state = {
-    listOfLeaders: {
-      contacts: [],
-    },
-  };
-  let container;
-
-  beforeEach(() => {
-    container = render(
+  test('should render LeadersList component', () => {
+    const LeadersListComponent = render(
       <Provider store={store}>
         <LeadersList />
       </Provider>,
-    );
-  });
-
-  test('should render LeadersList component', () => {
-    const LeadersListComponent = container.getByTestId('leadersListComponent');
+    ).getByTestId('leadersListComponent');
     expect(LeadersListComponent).toBeDefined();
   });
 });

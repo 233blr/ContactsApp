@@ -24,6 +24,7 @@
     "no-shadow": "off",
     "no-param-reassign": "off",
     "no-unused-vars": "off",
+    "no-undef": "off",
     "@typescript-eslint/no-shadow": [
       "error"
     ],
