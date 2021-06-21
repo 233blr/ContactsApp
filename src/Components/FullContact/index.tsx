@@ -91,7 +91,7 @@ const FullContact: FC = () => {
       clickStates[i] = i <= rating;
     }
     setClicked(clickStates);
-    dispatch(addRating(contact?.id, rating + 1));
+    dispatch(addRating(rating + 1, contact?.id));
   };
 
   const getRating = () => {

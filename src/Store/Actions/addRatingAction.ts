@@ -6,14 +6,16 @@ import {
 import { GetStateType } from '../../Types/contactAction';
 import ratingHandler from '../../Services/AddRating';
 
-const addRating = (id: string | undefined, rating: number) => (
+const addRating = (rating: number, id?: string) => (
   dispatch: Dispatch<ContactsActions>, getState: () => GetStateType,
 ) => {
   const state = getState();
-  dispatch({
-    type: ContactsActionTypes.ADD_RATING,
-    payload: ratingHandler(id, rating, state.listOfContacts.contacts),
-  });
+  if (id) {
+    dispatch({
+      type: ContactsActionTypes.ADD_RATING,
+      payload: ratingHandler(rating, state.listOfContacts.contacts, id),
+    });
+  }
 };
 
 export default addRating;

@@ -2,9 +2,9 @@ import { ContactType } from '../../Types/contactsReducer';
 import LocalStorage from '../LocalStorage';
 
 const ratingHandler = (
-  id: string | undefined,
   rating: number,
   arr: ContactType[],
+  id?: string,
 ) => {
   const filtered = [...arr];
   filtered.forEach(

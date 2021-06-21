@@ -42,7 +42,7 @@ const LocalStorage = {
       });
       const result = this.parse(dataColection);
       result.forEach((contact) => {
-        ratingHandler(contact.id, contact.rating, dataColection);
+        ratingHandler(contact.rating, dataColection, contact.id);
       });
     } else {
       this.set([]);
