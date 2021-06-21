@@ -3,12 +3,12 @@ import styled from 'styled-components';
 import useTypedSelector from '../../Hooks/useTypedSelector';
 
 const DivWrapper = styled.div`
-width: 100%;
-height: 70vh;
-display: flex;
-align-items: center;
-justify-content: center;
-color: #FFF;
+  width: 100%;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFF;
 `;
 
 const ErrorPage: React.FC = () => {

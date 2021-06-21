@@ -9,75 +9,75 @@ import { ContactItemType } from '../../../Types/contactItem';
 import { RatingList } from '../..';
 
 const ContactItemWrapper = styled.div`
-display: grid;
-grid-template-rows: 100px;
-grid-template-areas:
-'img' 'img' 'discription' 'vue' 'list' 'rating' 'buttons';
-align-items: center;
-justify-items: center;
-height: 280px;
-border-radius: 5px;
-background-color: #FFF;
-color: #33393D;
-position: relative;
-overflow: hidden;
-:hover > .DeleteBtn {
-  top: 15px;
-  right: 15px;
-};
-:hover > .ViewBtn {
-  top: 15px;
-  left: 15px;
-};
+  display: grid;
+  grid-template-rows: 100px;
+  grid-template-areas:
+  'img' 'img' 'discription' 'vue' 'list' 'rating' 'buttons';
+  align-items: center;
+  justify-items: center;
+  height: 280px;
+  border-radius: 5px;
+  background-color: #FFF;
+  color: #33393D;
+  position: relative;
+  overflow: hidden;
+  :hover > .DeleteBtn {
+    top: 15px;
+    right: 15px;
+  };
+  :hover > .ViewBtn {
+    top: 15px;
+    left: 15px;
+  };
 `;
 
 const ImgWrapper = styled.img`
-border-radius: 50%;
-border: 3px solid #FFCD24;
-padding: 3px;
+  border-radius: 50%;
+  border: 3px solid #FFCD24;
+  padding: 3px;
 `;
 
 const NameWrapper = styled.div`
-font-family: "Gill Sans",sans-serif;
-font-weight: bold;
+  font-family: "Gill Sans",sans-serif;
+  font-weight: bold;
 `;
 
 const ViewBtnWrapper = styled.button`
-position: absolute;
-top: -20px;
-left: -20px;
-width: 25px;
-height: 25px;
-border: none;
-border-radius: 50%;
-background-color: #FFF;
-transform-origin: center center;
-color: #1FF0BD;
-font-size: 20px;
-cursor: pointer;
-transition: all 0.5s ease-in-out 0.5s;
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: 25px;
+  height: 25px;
+  border: none;
+  border-radius: 50%;
+  background-color: #FFF;
+  transform-origin: center center;
+  color: #1FF0BD;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out 0.5s;
 `;
 
 const DeleteBtnWrapper = styled.button`
-position: absolute;
-display: block;
-top: -20px;
-right: -20px;
-width: 25px;
-height: 25px;
-border: none;
-border-radius: 50%;
-background-color: #FFF;
-vertical-align: baseline;
-transform-origin: center center;
-color: #FF3333;
-font-size: 20px;
-cursor: pointer;
-transition: all 0.5s ease-in-out 0.5s;
+  position: absolute;
+  display: block;
+  top: -20px;
+  right: -20px;
+  width: 25px;
+  height: 25px;
+  border: none;
+  border-radius: 50%;
+  background-color: #FFF;
+  vertical-align: baseline;
+  transform-origin: center center;
+  color: #FF3333;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out 0.5s;
 `;
 
 const EmailWrapper = styled.div`
-margin-bottom: 5px;
+  margin-bottom: 5px;
 `;
 
 const ContactItem: FC<ContactItemType> = ({ data }) => {

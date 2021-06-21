@@ -14,67 +14,67 @@ import useTypedSelector from '../../Hooks/useTypedSelector';
 import addRating from '../../Store/Actions/addRatingAction';
 
 const DivWrapper = styled.div`
-height: 100vh;
+  height: 100vh;
 `;
 
 const ContactWrapper = styled.div`
-display: grid;
-grid-template-rows: 260px;
-grid-template-areas:
-'img' 'img' 'rating' 'name' 'login' 'phone' 'email' 'button';
-align-items: center;
-justify-items: center;
-gap: 15px 10px;
-position: relative;
-border-radius: 5px;
-background-color: #FFF;
-box-shadow: inset 0 130px #9DC8E4;
-height: 80vh;
+  display: grid;
+  grid-template-rows: 260px;
+  grid-template-areas:
+  'img' 'img' 'rating' 'name' 'login' 'phone' 'email' 'button';
+  align-items: center;
+  justify-items: center;
+  gap: 15px 10px;
+  position: relative;
+  border-radius: 5px;
+  background-color: #FFF;
+  box-shadow: inset 0 130px #9DC8E4;
+  height: 80vh;
 `;
 
 const ImgWrapper = styled.img`
-width: 200px;
-height: 200px;
-border-radius: 50%;
-border: 5px solid #9DC8E4;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 5px solid #9DC8E4;
 `;
 
 const ButtonWrapper = styled.button`
-position: absolute;
-bottom: 15px;
-border: 0;
-background-color: #FFCD24;
-padding: 10px;
-font-size: 16px;
-border-radius: 3px;
-color: #33393D;
-:hover{
-  cursor: pointer;
-  text-decoration: underline;
-}
-:active{
-  color: #666B6E;
-}
+  position: absolute;
+  bottom: 15px;
+  border: 0;
+  background-color: #FFCD24;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 3px;
+  color: #33393D;
+  :hover{
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  :active{
+    color: #666B6E;
+  }
 `;
 
 const ItemWrapper = styled.div`
-display: grid;
-align-items: center;
-justify-items: center;
-grid-template-columns: auto 1fr auto;
-font-size: 25px;
-width: 50%;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  grid-template-columns: auto 1fr auto;
+  font-size: 25px;
+  width: 50%;
 `;
 
 const SpanWrapper = styled.span`
-color: #666B6E;
+  color: #666B6E;
 `;
 
 const RatingBodyWrapper = styled.div`
-font-size: 26px;
-:hover > .stars {
-  cursor: pointer;
-}
+  font-size: 26px;
+  :hover > .stars {
+    cursor: pointer;
+  }
 `;
 
 const FullContact: FC = () => {
@@ -90,8 +90,7 @@ const FullContact: FC = () => {
   const handleRatingClick = (rating: number) => {
     const clickStates = [...clicked];
     for (let i = 0; i < 5; i += 1) {
-      if (i <= rating) clickStates[i] = true;
-      else clickStates[i] = false;
+      clickStates[i] = i <= rating;
     }
     setClicked(clickStates);
     dispatch(addRating(contact?.id, rating + 1));

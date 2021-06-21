@@ -7,15 +7,15 @@ import getLeaders from '../../Store/Actions/getLeadersAction';
 import { PreLoader } from '../index';
 
 const LeadersListWrapper = styled.div`
-display: flex;
-flex-direction: column;
-gap: 10px 10px;
-margin: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px 10px;
+  margin: 10px;
 `;
 
 const NoLeadersWrapper = styled.div`
-color: #FFF;
-text-align: center;
+  color: #FFF;
+  text-align: center;
 `;
 
 const LeadersList: FC = () => {

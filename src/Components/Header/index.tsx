@@ -5,62 +5,62 @@ import { useDispatch } from 'react-redux';
 import sortingContacts from '../../Store/Actions/sortContactAction';
 
 const HeaderWrapper = styled.div`
-min-height: 90px;
-margin: 0 10px;
-position: relative;
-display: flex;
-justify-content: space-between;
-align-items: center;
-color:#FFF;
+  min-height: 90px;
+  margin: 0 10px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color:#FFF;
 `;
 
 const LeadersLinkWrapper = styled.div`
-border: 0;
-background-color: #FFCD24;
-padding: 10px;
-font-size: 16px;
-border-radius: 3px;
-color: #33393D;
-:hover{
-  cursor: pointer;
-  text-decoration: underline;
-}
-:active{
-  color: #666B6E;
-}
+  border: 0;
+  background-color: #FFCD24;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 3px;
+  color: #33393D;
+  :hover{
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  :active{
+    color: #666B6E;
+  }
 `;
 
 const H1Wrapper = styled.h1`
-font-family: "Gill Sans",sans-serif;
-font-style: italic;
-::after {
-  content: "ReactContacts"
-}
-@media(max-width: 450px) {
+  font-family: "Gill Sans",sans-serif;
+  font-style: italic;
   ::after {
-    content: "RC"
+    content: "ReactContacts"
   }
-}
+  @media(max-width: 450px) {
+    ::after {
+      content: "RC"
+    }
+  }
 `;
 
 const UlWrapper = styled.ul`
-position: absolute;
-right: 0;
-bottom: 0;
-display: flex;
-flex-direction: row;
-gap: 10px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
 `;
 
 const LiWrapper = styled.li`
-list-style: none;
-:hover{
-cursor: pointer;
-text-decoration: underline;
-}
-:active{
-  color: #9DC8E4;
-}
+  list-style: none;
+  :hover{
+  cursor: pointer;
+  text-decoration: underline;
+  }
+  :active{
+    color: #9DC8E4;
+  }
 `;
 
 const listItems: string[] = [

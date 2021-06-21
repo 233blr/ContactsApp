@@ -12,12 +12,12 @@ import {
 } from '../Components';
 
 const AppWrapper = styled.div`
-display: flex;
-flex-direction: column;
-margin: 0 auto;
-max-width: 1200px;
-height: 100vh;
-`;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 1200px;
+  height: 100vh;
+  `;
 
 const App: FC = () => {
   const dispatch = useDispatch();
