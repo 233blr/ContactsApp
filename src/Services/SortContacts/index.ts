@@ -1,16 +1,18 @@
 import { ContactType } from '../../Types/contactsReducer';
 
-const sortContacts = (value: string, arr: ContactType[]) => {
-  const contacts = [...arr];
-  if (value === 'rating') {
-    contacts.sort(
-      (a, b) => (a[value] < b[value] ? 1 : -1),
-    );
-  } else {
+const sortContactsByRating = (contacts: ContactType[]) => (
+  contacts.sort(
+    (a, b) => (a.rating < b.rating ? 1 : -1),
+  )
+);
+
+const sortContacts = (sortBy: string, contacts: ContactType[]) => {
+  if (sortBy === 'rating') sortContactsByRating(contacts);
+  else {
     contacts.sort(
       (a: any, b: any) => {
-        if (a[value] > b[value]) return 1;
-        if (a[value] < b[value]) return -1;
+        if (a[sortBy] > b[sortBy]) return 1;
+        if (a[sortBy] < b[sortBy]) return -1;
         return 0;
       },
     );
