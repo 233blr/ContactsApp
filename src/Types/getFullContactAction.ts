@@ -12,14 +12,14 @@ export interface GetFullContactAction {
 
 export interface LinkToFullContactPageAction {
   type: GetFullContactActionTypes.GET_FULL_CONTACT_SUCCESS;
-  payload: ContactType | undefined | null;
+  payload: ContactType | undefined;
 }
 
 export type FullContactActions = GetFullContactAction
   | LinkToFullContactPageAction;
 
 export interface FullContactState {
-  contact: ContactType | undefined | null;
+  contact: ContactType | undefined;
   loading: boolean;
 }
 

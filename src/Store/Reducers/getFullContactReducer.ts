@@ -5,7 +5,7 @@ import {
 } from '../../Types/getFullContactAction';
 
 const initialState: FullContactState = {
-  contact: null,
+  contact: undefined,
   loading: false,
 };
 
@@ -17,7 +17,7 @@ const FullContactReducer = (
     case GetFullContactActionTypes.GET_FULL_CONTACT:
       return {
         ...initialState,
-        contact: null,
+        contact: undefined,
         loading: true,
       };
     case GetFullContactActionTypes.GET_FULL_CONTACT_SUCCESS:

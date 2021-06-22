@@ -96,7 +96,7 @@ const FullContact: FC = () => {
 
   const getRating = () => {
     const rating = contact?.rating;
-    if (rating === undefined) return;
+    if (!rating) return;
     handleRatingClick(rating - 1);
   };
 

@@ -1,8 +1,8 @@
 import { FetchContactType } from '../../Types/getContactsAction';
 import LocalStorage from '../LocalStorage';
 
-const parseContactsData = (arr: FetchContactType[]) => {
-  const result = arr.map((contact: FetchContactType) => {
+const parseContactsData = (fechedContacts: FetchContactType[]) => {
+  const result = fechedContacts.map((contact: FetchContactType) => {
     return {
       id: contact.login.uuid,
       image: contact.picture.medium,
